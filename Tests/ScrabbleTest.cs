@@ -15,12 +15,36 @@ namespace NTW.Objects
       //   Assert.Equal(1, userOutput);
       // }
     [Fact]
-    public void InputTen_ReturnTenText_Ten()
+    public void InputSix_ReturnSixText_Six()
     {
       int userInput = 6;
       NumToWord newNumToWord = new NumToWord(userInput);
       string userOutput = newNumToWord.Convert();
       Assert.Equal("six", userOutput);
+    }
+    [Fact]
+    public void InputTeen_ReturnTeenText_Teen()
+    {
+      int userInput = 11;
+      NumToWord newNumToWord = new NumToWord(userInput);
+      string userOutput = newNumToWord.Convert();
+      Assert.Equal("eleven", userOutput);
+    }
+    [Fact]
+    public void InputTens_ReturnTensText_Tens()
+    {
+      int userInput = 70;
+      NumToWord newNumToWord = new NumToWord(userInput);
+      string userOutput = newNumToWord.Convert();
+      Assert.Equal("seventy", userOutput);
+    }
+    [Fact]
+    public void Input21_ReturnTensAndOnesText_TensAndOnes()
+    {
+      int userInput = 75;
+      NumToWord newNumToWord = new NumToWord(userInput);
+      string userOutput = newNumToWord.Convert();
+      Assert.Equal("seventy five", userOutput);
     }
   }
 }

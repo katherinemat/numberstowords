@@ -7,27 +7,42 @@ namespace NTW.Objects
   public class NumToWord
   {
       private int _input;
-      private string[] _word = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-      private string _outputWord;
+      private string _inputString;
+      private List<int> _digits = new List<int>{};
+      private string[] _ones = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+      private string[] _teens = {"eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+      private string[] _tens = {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 
-    // private char[] _input;
-    // private int _score;
-    // private char[] _one = {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'};
-    // private char[] _two = {'D', 'G'};
-    // private char[] _three = {'B', 'C', 'M', 'P'};
-    // private char[] _four = {'F', 'H', 'V', 'W', 'Y'};
-    // private char[] _five = {'K'};
-    // private char[] _eight = {'J', 'X'};
-    // private char[] _ten = {'Q', 'Z'};
+      private string _outputWord;
 
     public NumToWord (int input)
     {
       _input = input;
+      _inputString = input.ToString();
+      for(int j = 0; j < _inputString.Length; j++)
+      {
+          _digits.Add(int.Parse(_inputString[j].ToString()));
+      }
     }
 
     public string Convert()
     {
-        _outputWord = _word[_input - 1];
+        if (_input <= 10)
+        {
+            _outputWord = _ones[_input - 1];
+        }
+        else if (_input < 20)
+        {
+            _outputWord = _teens[_input - 11];
+        }
+        else if (_input < 100)
+        {
+            _outputWord = _tens[_digits[0] - 2];
+            if (_digits[1] > 0)
+            {
+                _outputWord = _outputWord + " " + _ones[_digits[1]-1];
+            }
+        }
         return _outputWord;
     }
   }
