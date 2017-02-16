@@ -7,6 +7,9 @@ namespace NTW.Objects
   public class NumToWord
   {
       private int _input;
+      private string[] _word = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+      private string _outputWord;
+
     // private char[] _input;
     // private int _score;
     // private char[] _one = {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'};
@@ -22,9 +25,10 @@ namespace NTW.Objects
       _input = input;
     }
 
-    public int Convert()
+    public string Convert()
     {
-        return _input;
+        _outputWord = _word[_input - 1];
+        return _outputWord;
     }
   }
 }
