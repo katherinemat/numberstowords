@@ -54,5 +54,21 @@ namespace NTW.Objects
       string userOutput = newNumToWord.Convert();
       Assert.Equal("four hundred", userOutput);
     }
+    [Fact]
+    public void Input21_ReturnTensAndOnesText_OneHUndredTwenty()
+    {
+      int userInput = 120;
+      NumToWord newNumToWord = new NumToWord(userInput);
+      string userOutput = newNumToWord.Convert();
+      Assert.Equal("one hundred twenty", userOutput);
+    }
+    [Fact]
+    public void Input21_ReturnTensAndOnesText_OneHUndredTwentyThree()
+    {
+      int userInput = 123;
+      NumToWord newNumToWord = new NumToWord(userInput);
+      string userOutput = newNumToWord.Convert();
+      Assert.Equal("one hundred twenty three", userOutput);
+    }
   }
 }

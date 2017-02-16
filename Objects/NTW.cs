@@ -29,11 +29,11 @@ namespace NTW.Objects
     {
         if (_input <= 10)
         {
-            _outputWord = _ones[_input - 1];
+            _outputWord = _ones[_digits[0] - 1];
         }
         else if (_input < 20)
         {
-            _outputWord = _teens[_input - 11];
+            _outputWord = _teens[_digits[1] - 1];
         }
         else if (_input < 100)
         {
@@ -46,6 +46,14 @@ namespace NTW.Objects
         else if (_input < 1000)
         {
             _outputWord = _ones[_digits[0] - 1] + " " + _hundred;
+            if (_digits[1] > 0)
+            {
+                _outputWord = _outputWord + " " + _tens[_digits[1]-2];
+            }
+            if (_digits[2] > 0)
+            {
+                _outputWord = _outputWord + " " + _ones[_digits[2]-1];
+            }
         }
         return _outputWord;
     }
