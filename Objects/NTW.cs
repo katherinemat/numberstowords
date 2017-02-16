@@ -12,7 +12,7 @@ namespace NTW.Objects
       private string[] _ones = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
       private string[] _teens = {"eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
       private string[] _tens = {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
-
+      private string _hundred = "hundred";
       private string _outputWord;
 
     public NumToWord (int input)
@@ -42,6 +42,10 @@ namespace NTW.Objects
             {
                 _outputWord = _outputWord + " " + _ones[_digits[1]-1];
             }
+        }
+        else if (_input < 1000)
+        {
+            _outputWord = _ones[_digits[0] - 1] + " " + _hundred;
         }
         return _outputWord;
     }
